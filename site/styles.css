@@ -1,0 +1,276 @@
+/* Sell Your Car, Calm Guide — single stylesheet, no JS, no webfonts, no external calls.
+   Copyright (c) 2026 Asdale Dynamics, LLC — MIT license */
+
+:root {
+  --ink: #1f2933;
+  --muted: #5b6b79;
+  --paper: #fdfdfb;
+  --card: #ffffff;
+  --accent: #1a6b5a;      /* calm teal-green */
+  --accent-dark: #105045;
+  --warn: #b3541e;
+  --bad: #a23232;
+  --good: #1a6b5a;
+  --line: #dde4e9;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* ---------- layout ---------- */
+
+.wrap {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header {
+  background: var(--accent-dark);
+  color: #eef6f3;
+  padding: 1.4rem 0 1.1rem;
+  border-bottom: 4px solid var(--accent);
+}
+
+.site-header .brand {
+  font-size: 1.35rem;
+  font-weight: bold;
+  margin: 0 0 0.2rem;
+  letter-spacing: 0.02em;
+}
+
+.site-header .tagline {
+  margin: 0 0 0.8rem;
+  color: #bcd8cf;
+  font-style: italic;
+}
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  font-size: 0.92rem;
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+.toc a { color: #d9ece5; text-decoration: none; }
+.toc a:hover { color: #ffffff; text-decoration: underline; }
+.toc .strong-link { font-weight: bold; color: #fff; }
+
+.print-hint { margin: 0.7rem 0 0; font-size: 0.85rem; color: #bcd8cf; }
+.print-hint kbd {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 0.8rem;
+  background: #105045;
+  border: 1px solid #2a7a68;
+  border-radius: 3px;
+  padding: 0 0.35em;
+  color: #eef6f3;
+}
+
+/* ---------- intro ---------- */
+
+.intro {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.4rem 1.4rem 1rem;
+  margin: 1.4rem 0;
+}
+
+.intro h1 {
+  margin: 0 0 0.6rem;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  color: var(--accent-dark);
+}
+
+.intro .btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 0.95rem;
+  padding: 0.55em 1.1em;
+  border-radius: 6px;
+  margin: 0.4rem 0;
+}
+.intro .btn:hover { background: var(--accent-dark); }
+
+.fineprint { color: var(--muted); font-size: 0.88rem; }
+
+/* ---------- stages ---------- */
+
+.stage {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.3rem 1.4rem 1rem;
+  margin: 1.2rem 0;
+}
+
+.stage h2 {
+  margin: 0 0 0.2rem;
+  font-size: 1.25rem;
+  color: var(--accent-dark);
+}
+
+.stage-num {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 0.85rem;
+  border-radius: 50%;
+  width: 1.7em;
+  height: 1.7em;
+  line-height: 1.7em;
+  text-align: center;
+  margin-right: 0.45em;
+}
+
+.stage-time {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0 0 0.8rem;
+}
+
+.steps { padding-left: 1.2rem; margin: 0 0 0.6rem; }
+.steps li { margin-bottom: 0.55rem; }
+
+.rules { margin: 1.6rem 0 2.5rem; }
+.rules h2 { color: var(--accent-dark); font-size: 1.2rem; }
+
+/* ---------- checklists ---------- */
+
+.checklist summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--accent-dark);
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+}
+.checklist[open] summary { border-bottom: 1px solid var(--line); margin-bottom: 0.6rem; }
+
+.checks {
+  list-style: none;
+  padding-left: 0.2rem;
+  margin: 0.4rem 0;
+}
+
+.checks li {
+  position: relative;
+  padding-left: 1.9em;
+  margin-bottom: 0.45rem;
+}
+
+.checks li::before {
+  content: "☐";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.05em;
+  color: var(--accent);
+}
+
+/* ---------- printable checklist sheet ---------- */
+
+.printable { page-break-before: always; page-break-inside: avoid; }
+.printable:first-of-type { page-break-before: avoid; }
+
+.rule-note {
+  background: #eef6f3;
+  border-left: 4px solid var(--accent);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+  margin: 0.8rem 0 0.3rem;
+}
+
+/* ---------- payment table ---------- */
+
+.paytable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin: 0 0 0.8rem;
+}
+
+.paytable th, .paytable td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.paytable th { background: #eef6f3; color: var(--accent-dark); }
+.paytable .good { color: var(--good); font-weight: bold; }
+.paytable .warn { color: var(--warn); font-weight: bold; }
+.paytable .bad  { color: var(--bad); font-weight: bold; }
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 1.2rem 0 2rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- print ---------- */
+
+@media print {
+  .no-print { display: none; }
+
+  body { font-size: 12pt; background: #fff; color: #000; }
+
+  .wrap { max-width: none; padding: 0; }
+
+  .stage,
+  .intro {
+    background: #fff;
+    border: none;
+    border-top: 2px solid #333;
+    border-radius: 0;
+    padding: 0.4rem 0 0.6rem;
+    margin: 0;
+  }
+
+  .stage h2, .rules h2 { color: #000; }
+  .stage-num {
+    background: none;
+    color: #000;
+    border: 1.5px solid #000;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.7em;
+  }
+
+  .checks li { page-break-inside: avoid; }
+  .checks li::before { content: "☐"; color: #000; border: none; }
+
+  .rule-note {
+    background: none;
+    border-left: 3px solid #333;
+    color: #000;
+  }
+
+  a { color: #000; text-decoration: none; }
+
+  .site-footer { border-top: 1px solid #333; color: #000; }
+}
